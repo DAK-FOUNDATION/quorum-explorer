@@ -31,15 +31,16 @@ It has not been designed for production use yet!
    or equivalent
 
 2. Create a [config file](./src/config/config.json) with the nodes you wish to monitor
+
    1. Set the consensus algorithm of your network by the variable: `algorithm`. Values allowed include: `qbft`, `ibft`, `clique`, `raft`
    2. For each node in your network append the following format to the list:
       ```json
-         {
-            "name": "NODE_NAME", // this can be anything as long as it does not overlap with other nodes
-            "client": "goquorum", // 'goquorum' or 'besu'
-            "rpcUrl": "http://127.0.0.1:8545", // 'rpcUrl that the explorer can use to contact the nodes'
-            "privateTxUrl": "" // if this is a besu-tessera or goquorum-tessera pairing, set the Url to Tessera here with the port e.g. http://127.0.0.1:9081; otherwise leave it as empty
-         }
+      {
+        "name": "NODE_NAME", // this can be anything as long as it does not overlap with other nodes
+        "client": "goquorum", // 'goquorum' or 'besu'
+        "rpcUrl": "http://127.0.0.1:8545", // 'rpcUrl that the explorer can use to contact the nodes'
+        "privateTxUrl": "" // if this is a besu-tessera or goquorum-tessera pairing, set the Url to Tessera here with the port e.g. http://127.0.0.1:9081; otherwise leave it as empty
+      }
       ```
    3. If your node is a tessera pairing and you would like to make private transactions through the explorer, you will need to add two more settings along with the `privateTxUrl`:
       ```json
@@ -88,7 +89,7 @@ Take a look at the `.env.production` file for values that you can change.
 
 **NODE_ENV**: leave this set to `production` in a prod environment
 
-**DISABLE_AUTH**: setting this to `false` will *enable* authentication. (by default left on false for the best security practices)
+**DISABLE_AUTH**: setting this to `false` will _enable_ authentication. (by default left on false for the best security practices)
 
 **NEXTAUTH_URL**: set this to your domain without base path. Defaults to `http://localhost:25000` for local use.
 
@@ -102,12 +103,12 @@ The variables for the remainder can be left empty if not in use. Set the variabl
 
 ```yaml
 services:
-   explorer:
-      image: consensys/quorum-explorer:latest
-      volumes:
+  explorer:
+    image: cuonghxdak/quorum-explorer:latest
+    volumes:
       - ./config.json:/app/config.json
       - ./.env.production:/app/.env.production
-      ports:
+    ports:
       - 25000:25000/tcp
 ```
 
@@ -124,15 +125,17 @@ The above you can find a bare-minimum `docker-compose.yaml`. You should edit the
 We welcome PRs for bugs or added functionality :) Please sign the CLA and submit a PR with your work for us to review.
 
 If you raise an issue, please include steps for us to reproduce your issue so we can solve it faster.
+
 ## Troubleshooting
 
 ### MetaMask Transaction is Stuck
 
-Sometimes you may run into an issue where sending a transaction through the Wallets page on the app becomes stuck indefinitely. This issue occurs if you import an account into MetaMask and then you subsequently restart/recreate your private network. 
+Sometimes you may run into an issue where sending a transaction through the Wallets page on the app becomes stuck indefinitely. This issue occurs if you import an account into MetaMask and then you subsequently restart/recreate your private network.
 
 **ENSURE THAT YOUR PRIVATE KEYS OR SEEDS ARE BACKED UP PRIOR TO DOING THIS**
 
-To resolve this problem: 
+To resolve this problem:
+
 1. Select the account in MetaMask
 2. Go to Advanced Settings in MetaMask and click "Reset Account"
 3. Do steps 1-2 for each account that was used or will be used to transact on the private network
