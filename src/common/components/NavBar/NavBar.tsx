@@ -7,6 +7,7 @@ import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { motion } from "framer-motion";
+import DakIcon from "./DakIcon";
 
 export default function NavBar() {
   return (
@@ -19,7 +20,8 @@ export default function NavBar() {
         transition={{ duration: 1 }}
       >
         <Flex w="100%" px="6" py="5" align="center" justify="space-between">
-          <QuorumIcon />
+          {/* <QuorumIcon /> */}
+          <DakIcon />
           {/* TODO: fix me up to avoid duplication of items  */}
           <HStack spacing="5" display={{ base: "none", md: "flex" }}>
             {NavItems.map((item, i) => (
