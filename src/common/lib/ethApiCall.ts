@@ -30,6 +30,7 @@ const allowedMethods = [
   "qbft_proposeValidatorVote",
   "eth_getBalance",
   "admin_peers",
+  "clique_propose",
 ];
 
 export async function ethApiCall(
@@ -45,6 +46,9 @@ export async function ethApiCall(
   if (!rpcList.includes(url) || !allowedMethods.includes(method)) {
     throw "URL or method is not allowed";
   }
+
+  console.log("########################");
+  console.log(url, method, params);
   return axios({
     method: "post",
     url: url,

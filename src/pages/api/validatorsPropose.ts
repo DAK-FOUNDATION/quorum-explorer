@@ -20,7 +20,7 @@ export default async function handler(
       raft: "raft_addPeer",
     },
     besu: {
-      clique: "clique_proposals",
+      clique: "clique_propose",
       ibft: "ibft_proposeValidatorVote",
       qbft: "qbft_proposeValidatorVote",
     },
@@ -39,7 +39,7 @@ export default async function handler(
       ]!,
       [address, vote]
     );
-    console.log(result);
+    // console.log(result);
     res.status(200);
   } catch (e) {
     console.error(e);

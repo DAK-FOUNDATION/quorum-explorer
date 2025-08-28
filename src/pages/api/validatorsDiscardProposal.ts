@@ -38,7 +38,7 @@ export default async function handler(
       ]!,
       [address]
     );
-    console.log(result);
+    // console.log(result);
     res.status(200);
   } catch (e) {
     console.error(e);
