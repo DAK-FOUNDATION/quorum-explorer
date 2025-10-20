@@ -14,17 +14,5 @@ export const NavItems: NavItem[] = [
   {
     label: 'Validators',
     icon: faUsers
-  },
-  {
-    label: 'Explorer',
-    icon: faCompass,
-  },
-  {
-    label: 'Contracts',
-    icon: faFileAlt,
-  },
-  {
-    label: 'Wallets',
-    icon: faWallet,
-  },
+  }
 ];

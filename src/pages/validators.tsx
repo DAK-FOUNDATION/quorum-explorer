@@ -128,7 +128,6 @@ export default function Validators({ config }: IProps) {
         />
         <Divider my={8} />
         <SimpleGrid columns={2} minChildWidth="600px">
-          <ValidatorsAbout />
           <ValidatorsActive
             config={config}
             minersList={validators.minersList}
